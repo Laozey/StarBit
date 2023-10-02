@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://6i0cihd627f"]
+
+[ext_resource type="Script" path="res://port.gd" id="1_x7rh8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w88xu"]
+size = Vector2(55, 10)
+
+[node name="Port" type="Area2D"]
+script = ExtResource("1_x7rh8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_w88xu")

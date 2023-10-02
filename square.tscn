@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxflayn73lmgt"]
+
+[ext_resource type="PackedScene" uid="uid://b5qsgyome4lp7" path="res://module.tscn" id="1_suvbd"]
+[ext_resource type="Script" path="res://Square.gd" id="2_a78ol"]
+[ext_resource type="Texture2D" uid="uid://c6niiu40wewgr" path="res://Sprites/Square.png" id="3_bpow4"]
+[ext_resource type="PackedScene" uid="uid://6i0cihd627f" path="res://port.tscn" id="4_j8o45"]
+
+[node name="Square" instance=ExtResource("1_suvbd")]
+script = ExtResource("2_a78ol")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_bpow4")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(32, 32, 32, -32, -32, -32, -32, 32)
+
+[node name="Port" parent="." index="2" instance=ExtResource("4_j8o45")]
+position = Vector2(-32, 0)
+rotation = -1.5708
+
+[node name="Port2" parent="." index="3" instance=ExtResource("4_j8o45")]
+position = Vector2(32, 0)
+rotation = 1.5708
+
+[node name="Port3" parent="." index="4" instance=ExtResource("4_j8o45")]
+position = Vector2(0, 32)
+rotation = 3.14159
+
+[node name="Port4" parent="." index="5" instance=ExtResource("4_j8o45")]
+position = Vector2(0, -32)
