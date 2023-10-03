@@ -1,8 +1,8 @@
 extends Area2D
 class_name Module
 
-@onready var shape_verticies : PackedVector2Array = $CollisionPolygon2D.polygon
-@export var side_length = 64 
+@export var side_length = 64
+
 var ports : Array[Port]
 
 func _ready():

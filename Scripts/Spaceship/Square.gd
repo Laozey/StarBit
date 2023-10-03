@@ -8,10 +8,7 @@ func rearrange_ports() :
 		Vector2(0, offset),
 		Vector2(-offset, 0)
 	]
-	var rot = 0
 	
 	for i in range(4):
 		ports[i].position = ports_position[i]
-		ports[i].rotation_degrees = rot
-		rot += 90
-		
+		ports[i].rotation_degrees = 90 * i
