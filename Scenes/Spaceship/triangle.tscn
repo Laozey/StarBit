@@ -1,14 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcuy7f0dpln76"]
 
 [ext_resource type="PackedScene" uid="uid://b5qsgyome4lp7" path="res://Scenes/Spaceship/module.tscn" id="1_3qbcp"]
-[ext_resource type="Script" path="res://Triangle.gd" id="2_ffia0"]
+[ext_resource type="Script" path="res://Scripts/Spaceship/Triangle.gd" id="2_ffia0"]
 [ext_resource type="Texture2D" uid="uid://dk8syqtf0l85e" path="res://Sprites/Triangle.png" id="3_l8m4o"]
 
 [node name="Triangle" instance=ExtResource("1_3qbcp")]
+position = Vector2(298, 133)
 script = ExtResource("2_ffia0")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_l8m4o")
 
 [node name="CollisionPolygon2D" parent="." index="1"]
-polygon = PackedVector2Array(0, -23, 32, 32, -32, 32)
+polygon = PackedVector2Array(0, -23, -32, 32, 32, 32)

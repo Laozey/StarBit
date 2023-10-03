@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c6niiu40wewgr" path="res://Sprites/Square.png" id="3_bpow4"]
 
 [node name="Square" instance=ExtResource("1_suvbd")]
-position = Vector2(129, 114)
+position = Vector2(272, 161)
 script = ExtResource("2_a78ol")
 
 [node name="Sprite2D" parent="." index="0"]

@@ -4,7 +4,10 @@
 
 [node name="Module" type="Area2D" groups=["Ports"]]
 script = ExtResource("1_4sqs6")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Ports" type="Node2D" parent="."]

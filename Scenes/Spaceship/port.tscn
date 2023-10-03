@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://6i0cihd627f"]
+[gd_scene load_steps=3 format=3 uid="uid://gqr8ontf7nyc"]
 
-[ext_resource type="Script" path="res://Scripts/Spaceship/Port.gd" id="1_x7rh8"]
+[ext_resource type="Script" path="res://Scripts/Spaceship/Port.gd" id="1_qwlmc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w88xu"]
-size = Vector2(55, 10)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5uts"]
 
-[node name="Port" type="Area2D"]
-script = ExtResource("1_x7rh8")
+[node name="port" type="Area2D"]
+rotation = -1.5708
+script = ExtResource("1_qwlmc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
-shape = SubResource("RectangleShape2D_w88xu")
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_f5uts")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)

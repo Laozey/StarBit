@@ -28,5 +28,4 @@ func _physics_process(delta):
 	
 	var friction = velocity * coef_friction
 	velocity -= friction
-	print(velocity)
 	position += velocity * delta 
