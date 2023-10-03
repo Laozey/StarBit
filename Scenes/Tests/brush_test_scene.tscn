@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsok5tcayctuk"]
+[gd_scene load_steps=4 format=3 uid="uid://bsok5tcayctuk"]
 
 [ext_resource type="PackedScene" uid="uid://bxflayn73lmgt" path="res://Scenes/Spaceship/square.tscn" id="1_5hxls"]
 [ext_resource type="PackedScene" uid="uid://ds14l63iliwtj" path="res://Scenes/brush.tscn" id="2_m3ucj"]
+[ext_resource type="PackedScene" uid="uid://bcuy7f0dpln76" path="res://Scenes/Spaceship/triangle.tscn" id="3_ohmr8"]
 
 [node name="brush_test_scene" type="Node2D"]
 
@@ -10,3 +11,6 @@ position = Vector2(139, 117)
 
 [node name="Brush" parent="." instance=ExtResource("2_m3ucj")]
 position = Vector2(-2, 0)
+
+[node name="Triangle" parent="." instance=ExtResource("3_ohmr8")]
+position = Vector2(490, 202)
