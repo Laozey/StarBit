@@ -11,10 +11,6 @@ var target_port : Port:
 
 var mouse_pos : Vector2
 
-func _draw():
-	var radius = $CollisionShape2D.shape.radius
-	draw_arc(Vector2.ZERO, radius, 0, TAU, 20, Color.BLUE, .5, true)
-
 func _input(event):
 	if event is InputEventMouseMotion:
 		mouse_pos = event.global_position

@@ -23,7 +23,7 @@ func instantiate_ports() :
 		# set new port rotation
 		var dir = start.direction_to(end)
 		new_port.rotation = dir.orthogonal().angle() - new_port.rotation
-
+		
 		# setup new port
 		var collision_shape : CollisionShape2D = new_port.get_node("CollisionShape2D")
 		if (collision_shape != null):
