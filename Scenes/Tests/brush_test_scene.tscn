@@ -6,11 +6,11 @@
 
 [node name="brush_test_scene" type="Node2D"]
 
-[node name="Square" parent="." instance=ExtResource("1_5hxls")]
+[node name="Square" parent="." groups=["Ports"] instance=ExtResource("1_5hxls")]
 position = Vector2(139, 117)
 
 [node name="Brush" parent="." instance=ExtResource("2_m3ucj")]
 position = Vector2(-2, 0)
 
-[node name="Triangle" parent="." instance=ExtResource("3_ohmr8")]
+[node name="Triangle" parent="." groups=["Ports"] instance=ExtResource("3_ohmr8")]
 position = Vector2(490, 202)

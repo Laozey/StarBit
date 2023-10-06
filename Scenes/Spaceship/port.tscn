@@ -12,3 +12,5 @@ script = ExtResource("1_qwlmc")
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_f5uts")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="part_added" from="." to="." method="_on_part_added"]

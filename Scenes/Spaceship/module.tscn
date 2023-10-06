@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" path="res://Scripts/Spaceship/Module.gd" id="1_4sqs6"]
 
-[node name="Module" type="Area2D" groups=["Ports"]]
+[node name="Module" type="Area2D"]
 script = ExtResource("1_4sqs6")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 

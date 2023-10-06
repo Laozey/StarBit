@@ -1,42 +1,63 @@
 extends Area2D
 
-@export var current : Module
-var target_port : Port:
-	get:
-		return target_port
-	set(value):
-		target_port = value
-		if value != null:
-			target_port.targeted = true
+@export var module_scene = preload("res://Scenes/Spaceship/square.tscn")
+@onready var preview_shader_material = preload("res://Art/Shaders/preview_shader_material.tres")
+var brush_content
+var is_module_on_target = false
+var target_port = null
+var ports_in_range: Array[Port]
 
-var mouse_pos : Vector2
+func _ready():
+	set_brush_content(module_scene)
 
-func _input(event):
-	if event is InputEventMouseMotion:
-		mouse_pos = event.global_position
-		move_brush()
-		set_nearest_target_port()
+func _input(_event):
+	position = get_global_mouse_position()
+	
+	if ports_in_range.size() > 0:
+		var port = select_nearest_port()
+		if target_port != port:
+			target_port = port
+			attach_preview()
+	elif is_module_on_target:
+		swap_preview(self)
+		brush_content.position = Vector2.ZERO
+		is_module_on_target = false
 
-func move_brush():
-	position = mouse_pos
+func _on_area_entered(area):
+	if area is Port:
+		ports_in_range.append(area)
 
-# set the nearest port in range as the new target
-func set_nearest_target_port():
-	var ports = get_overlapping_areas().filter(func(area): return area is Port)
-	replace_target_port()
-	if ports.size() > 0:
-		target_port = ports[0]
-		for i in range(1, ports.size()):
-			swap_target_port(ports[i])
+func _on_area_exited(area):
+	if area is Port:
+		ports_in_range.remove_at(ports_in_range.find(area))
 
-# swap target port with new one based on distance
-func swap_target_port(new_port):
-	var dist_new = new_port.global_position.distance_squared_to(mouse_pos)
-	var dist_target_port = target_port.global_position.distance_squared_to(mouse_pos)
-	if dist_new < dist_target_port:
-		replace_target_port(new_port)
+func set_brush_content(scene):
+	brush_content = scene.instantiate()
+	add_child(brush_content)
+	brush_content.deactivate_ports()
+	brush_content.material = preview_shader_material
 
-func replace_target_port(new_port: Port = null):
-	if target_port != null:
-		target_port.targeted = false
-	target_port = new_port
+func select_nearest_port():
+	var port = ports_in_range[0]
+	var smaller_dist = global_position.distance_to(port.global_position)
+	for i in range(1, ports_in_range.size()):
+		var dist = global_position.distance_to(ports_in_range[i].global_position)
+		if dist < smaller_dist:
+			port = ports_in_range[i]
+			smaller_dist = dist
+	
+	return port
+
+func attach_preview():
+	swap_preview(target_port)
+	is_module_on_target = true
+	target_port.part_added.emit(brush_content)
+
+func swap_preview(new_parent):
+	var parent = brush_content.get_parent()
+	brush_content.visible = true
+	
+	if parent != null:
+		parent.remove_child(brush_content)
+	
+	new_parent.add_child(brush_content)
