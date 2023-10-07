@@ -30,6 +30,7 @@ func instantiate_ports() :
 		if (collision_shape != null):
 			collision_shape.shape.size.x = side_length * 0.75
 
-func deactivate_ports():
+func deactivate():
+	$CollisionPolygon2D.disabled = true
 	for port in $Ports.get_children():
 		port.deactivate_port()
